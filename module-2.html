@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 02 — CSS Styling &amp; Layout</title>
+<meta name="description" content="Module 2 of the Web Programming lab manual: CSS selectors, the box model, Flexbox, Grid, and responsive design.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="sidebar-overlay"></div>
+
+<header class="site-header">
+  <div class="header-left">
+    <button class="menu-btn" aria-label="Toggle navigation">
+      <svg viewBox="0 0 16 16" fill="none"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+    </button>
+    <a href="index.html" class="brand">
+      <span class="brand-mark">CY</span>
+      <span class="brand-text"><b>25/CO/CY/045</b><span>Cybersecurity · Faculty of Computing</span></span>
+    </a>
+  </div>
+  <nav class="header-nav">
+    <a href="index.html">Home</a>
+    <a href="module-1.html">Module 01</a>
+    <a href="module-2.html" class="active">Module 02</a>
+    <a href="module-3.html">Module 03</a>
+  </nav>
+  <a href="contact.html" class="header-cta">Contact</a>
+</header>
+
+<aside class="sidebar">
+  <div class="sidebar-section">
+    <span class="sidebar-label">Navigate</span>
+    <a href="index.html" class="sidebar-link"><span class="sidebar-num">00</span>Home</a>
+    <a href="module-1.html" class="sidebar-link"><span class="sidebar-num">01</span>Module 1 — HTML</a>
+    <a href="module-2.html" class="sidebar-link active"><span class="sidebar-num">02</span>Module 2 — CSS</a>
+    <a href="module-3.html" class="sidebar-link"><span class="sidebar-num">03</span>Module 3 — JavaScript</a>
+    <a href="contact.html" class="sidebar-link"><span class="sidebar-num">→</span>Contact</a>
+  </div>
+  <div class="sidebar-foot">
+    WEB PROGRAMMING<br>LAB MANUAL · 2026
+  </div>
+</aside>
+
+<div class="content">
+
+  <section class="hero" style="padding:80px 0 48px;">
+    <div class="container reveal">
+      <div class="rail" style="max-width:260px;">
+        <div class="seg done"></div><div class="seg done"></div><div class="seg"></div>
+        <span class="rail-label">02 / 03</span>
+      </div>
+      <span class="eyebrow">Module 02</span>
+      <h1 style="font-size:clamp(30px,4.4vw,44px);">CSS Styling &amp; Layout</h1>
+      <p class="lead">If HTML is the skeleton, CSS is everything else — colour, spacing, type, and the rules that decide where each element sits on the page.</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="container">
+      <span class="eyebrow reveal">Overview</span>
+      <h2 class="reveal">What you'll learn</h2>
+      <ul class="check-list reveal">
+        <li>Selectors and specificity — targeting the right element</li>
+        <li>The box model: content, padding, border, margin</li>
+        <li>Flexbox for one-dimensional layout</li>
+        <li>CSS Grid for two-dimensional layout</li>
+        <li>Responsive design with media queries</li>
+      </ul>
+
+      <div class="figure reveal">
+        <img src="https://picsum.photos/seed/css-layout/900/600" alt="Illustrative placeholder image — CSS layout grid on screen" loading="lazy">
+        <figcaption>Fig. 1 — A page laid out with CSS Grid. Replace with your own lab screenshot.</figcaption>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="container">
+      <span class="eyebrow reveal">Reference</span>
+      <h2 class="reveal">Core properties</h2>
+      <div class="table-wrap reveal">
+        <table>
+          <thead>
+            <tr><th>Property</th><th>Purpose</th><th>Example value</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>color</code></td><td>Text colour</td><td><code>#0a0a0a</code></td></tr>
+            <tr><td><code>background</code></td><td>Element background</td><td><code>#fafafa</code></td></tr>
+            <tr><td><code>display</code></td><td>Layout mode</td><td><code>flex</code> / <code>grid</code></td></tr>
+            <tr><td><code>margin / padding</code></td><td>Outer / inner spacing</td><td><code>16px</code></td></tr>
+            <tr><td><code>border-radius</code></td><td>Rounded corners</td><td><code>8px</code></td></tr>
+            <tr><td><code>transition</code></td><td>Animate property changes</td><td><code>all .2s ease</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="container">
+      <span class="eyebrow reveal">Try it</span>
+      <h2 class="reveal">The box model, visually</h2>
+      <p class="reveal">Every element is a box. From the inside out: content, padding, border, margin.</p>
+      <div class="reveal" style="border:1px dashed var(--border-strong); border-radius:10px; padding:24px; background:var(--subtle); display:inline-block;">
+        <div style="border:1px dashed var(--faint); padding:18px; background:var(--bg);">
+          <div style="border:1px solid var(--fg); border-radius:6px; padding:14px 18px; font-family:var(--mono); font-size:12px; text-align:center;">
+            content
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="container">
+      <span class="eyebrow reveal">Worked example</span>
+      <h2 class="reveal">A simple Flexbox row</h2>
+      <div class="codeblock reveal">
+<span class="c1">/* layout.css */</span>
+.row {
+  <span class="c3">display</span>: <span class="c2">flex</span>;
+  <span class="c3">gap</span>: <span class="c2">16px</span>;
+  <span class="c3">align-items</span>: <span class="c2">center</span>;
+  <span class="c3">justify-content</span>: <span class="c2">space-between</span>;
+}
+
+<span class="c1">@media (max-width: 600px) {</span>
+  .row { <span class="c3">flex-direction</span>: <span class="c2">column</span>; }
+<span class="c1">}</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="container">
+      <span class="eyebrow reveal">Listen</span>
+      <h2 class="reveal">Lecture recap</h2>
+      <p class="reveal">A short audio recap of the Module 2 lecture — swap the source for your own recording.</p>
+      <div class="audio-card reveal">
+        <div class="audio-top">
+          <div class="audio-icon">
+            <svg viewBox="0 0 16 16" fill="none" width="16" height="16"><path d="M5 3v10l8-5-8-5Z" fill="currentColor"/></svg>
+          </div>
+          <div class="audio-meta">
+            <b>Module 02 — CSS Styling &amp; Layout</b>
+            <span>RECAP AUDIO · 5 MIN</span>
+          </div>
+        </div>
+        <audio controls preload="none">
+          <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="pager reveal">
+      <a href="module-1.html"><span class="dir">← Prev</span><div class="ttl">Module 01 — Introduction to HTML</div></a>
+      <a href="module-3.html" class="next"><span class="dir">Next</span><div class="ttl">Module 03 — JavaScript Fundamentals</div></a>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 · Reg. 25/CO/CY/045 · Dept. of Cybersecurity</p>
+      <p>Faculty of Computing</p>
+    </div>
+  </footer>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

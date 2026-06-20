@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 03 — JavaScript Fundamentals</title>
+<meta name="description" content="Module 3 of the Web Programming lab manual: JavaScript variables, functions, the DOM, and event handling.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="sidebar-overlay"></div>
+
+<header class="site-header">
+  <div class="header-left">
+    <button class="menu-btn" aria-label="Toggle navigation">
+      <svg viewBox="0 0 16 16" fill="none"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+    </button>
+    <a href="index.html" class="brand">
+      <span class="brand-mark">CY</span>
+      <span class="brand-text"><b>25/CO/CY/045</b><span>Cybersecurity · Faculty of Computing</span></span>
+    </a>
+  </div>
+  <nav class="header-nav">
+    <a href="index.html">Home</a>
+    <a href="module-1.html">Module 01</a>
+    <a href="module-2.html">Module 02</a>
+    <a href="module-3.html" class="active">Module 03</a>
+  </nav>
+  <a href="contact.html" class="header-cta">Contact</a>
+</header>
+
+<aside class="sidebar">
+  <div class="sidebar-section">
+    <span class="sidebar-label">Navigate</span>
+    <a href="index.html" class="sidebar-link"><span class="sidebar-num">00</span>Home</a>
+    <a href="module-1.html" class="sidebar-link"><span class="sidebar-num">01</span>Module 1 — HTML</a>
+    <a href="module-2.html" class="sidebar-link"><span class="sidebar-num">02</span>Module 2 — CSS</a>
+    <a href="module-3.html" class="sidebar-link active"><span class="sidebar-num">03</span>Module 3 — JavaScript</a>
+    <a href="contact.html" class="sidebar-link"><span class="sidebar-num">→</span>Contact</a>
+  </div>
+  <div class="sidebar-foot">
+    WEB PROGRAMMING<br>LAB MANUAL · 2026
+  </div>
+</aside>
+
+<div class="content">
+
+  <section class="hero" style="padding:80px 0 48px;">
+    <div class="container reveal">
+      <div class="rail" style="max-width:260px;">
+        <div class="seg done"></div><div class="seg done"></div><div class="seg done"></div>
+        <span class="rail-label">03 / 03</span>
+      </div>
+      <span class="eyebrow">Module 03</span>
+      <h1 style="font-size:clamp(30px,4.4vw,44px);">JavaScript Fundamentals</h1>
+      <p class="lead">JavaScript turns a static page into something that responds — to clicks, to input, to time. This module covers the core language and how it talks to the DOM.</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="container">
+      <span class="eyebrow reveal">Overview</span>
+      <h2 class="reveal">What you'll learn</h2>
+      <ul class="check-list reveal">
+        <li>Variables and data types — <code>let</code>, <code>const</code>, strings, numbers, booleans</li>
+        <li>Functions, including arrow function syntax</li>
+        <li>Selecting and updating the DOM</li>
+        <li>Listening for events — clicks, input, submit</li>
+        <li>Conditionals and simple control flow</li>
+      </ul>
+
+      <div class="figure reveal">
+        <img src="https://picsum.photos/seed/javascript-code/900/600" alt="Illustrative placeholder image — JavaScript code on screen" loading="lazy">
+        <figcaption>Fig. 1 — JavaScript driving an interactive page. Replace with your own lab screenshot.</figcaption>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="container">
+      <span class="eyebrow reveal">Reference</span>
+      <h2 class="reveal">Core data types</h2>
+      <div class="table-wrap reveal">
+        <table>
+          <thead>
+            <tr><th>Type</th><th>Example</th><th>Notes</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>String</code></td><td><code>"hello"</code></td><td>Text, in quotes</td></tr>
+            <tr><td><code>Number</code></td><td><code>42</code></td><td>Integers and decimals</td></tr>
+            <tr><td><code>Boolean</code></td><td><code>true</code></td><td>True / false logic</td></tr>
+            <tr><td><code>Array</code></td><td><code>[1, 2, 3]</code></td><td>Ordered list of values</td></tr>
+            <tr><td><code>Object</code></td><td><code>{ name: "A" }</code></td><td>Key–value pairs</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="container">
+      <span class="eyebrow reveal">Worked example</span>
+      <h2 class="reveal">Responding to a click</h2>
+      <div class="codeblock reveal">
+<span class="c1">// interact.js</span>
+<span class="c3">const</span> button = document.querySelector(<span class="c2">'#greet'</span>);
+
+button.addEventListener(<span class="c2">'click'</span>, () => {
+  <span class="c3">const</span> name = document.querySelector(<span class="c2">'#name'</span>).value;
+  alert(<span class="c2">`Hello, ${name}!`</span>);
+});
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="container">
+      <span class="eyebrow reveal">Listen</span>
+      <h2 class="reveal">Lecture recap</h2>
+      <p class="reveal">A short audio recap of the Module 3 lecture — swap the source for your own recording.</p>
+      <div class="audio-card reveal">
+        <div class="audio-top">
+          <div class="audio-icon">
+            <svg viewBox="0 0 16 16" fill="none" width="16" height="16"><path d="M5 3v10l8-5-8-5Z" fill="currentColor"/></svg>
+          </div>
+          <div class="audio-meta">
+            <b>Module 03 — JavaScript Fundamentals</b>
+            <span>RECAP AUDIO · 6 MIN</span>
+          </div>
+        </div>
+        <audio controls preload="none">
+          <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="pager reveal">
+      <a href="module-2.html"><span class="dir">← Prev</span><div class="ttl">Module 02 — CSS Styling &amp; Layout</div></a>
+      <a href="contact.html" class="next"><span class="dir">Next</span><div class="ttl">Contact</div></a>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 · Reg. 25/CO/CY/045 · Dept. of Cybersecurity</p>
+      <p>Faculty of Computing</p>
+    </div>
+  </footer>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
