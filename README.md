@@ -50,9 +50,23 @@ Any static host works — pick whichever is easiest:
 
 - [ ] **Your name** — open `contact.html` and replace `Your Name` in the profile card (search for `<!-- replace with your full name -->`).
 - [ ] **Reg. no. / department** — currently set to `25/CO/CY/045` / Cybersecurity across the header, sidebar, footer, and contact page. Find-and-replace if these change.
-- [ ] **Images** — placeholder images load from `picsum.photos`. Swap the `src` in each `<img>` for your own lab screenshots.
-- [ ] **Audio** — each module has a recap audio player pointed at sample tracks (SoundHelix). Swap the `<source src="...">` for your own recordings.
+- [ ] **Images** — each module now uses a real, free-to-use photo from Unsplash (no attribution legally required, credited in the caption anyway). Swap to your own lab screenshots any time by replacing the `src` in each `<img>` tag.
+- [ ] **Audio** — each module has a recap audio player pointed at a free royalty-free demo track (SoundHelix) so the player works out of the box. Swap the `<source src="...">` for your own recording — see "Adding real audio" below.
 - [ ] **Contact form** — currently a static front-end demo (shows a success message but doesn't send anywhere). To receive real submissions, point the `<form>` at a service like [Formspree](https://formspree.io) or Netlify Forms.
+
+## Adding real audio
+
+The recap players currently use free SoundHelix demo tracks so they're playable immediately, but they're generic background music, not real lecture content. To swap in your own:
+
+1. Record a short recap on your phone's voice memo app (60–90 seconds is plenty) and export it as an `.mp3`.
+2. Drop the file into the site folder, e.g. `audio/module-1-recap.mp3`.
+3. In `module-1.html` (and 2/3), find the `<source src="...">` line inside the `<audio>` tag and change it to your local path:
+   ```html
+   <source src="audio/module-1-recap.mp3" type="audio/mpeg">
+   ```
+4. Repeat for each module.
+
+If you'd rather not record your own voice, free royalty-free narration tracks are available at [Pixabay Audio](https://pixabay.com/sound-effects/search/lecture/) and [Freesound](https://freesound.org) — check each track's license before using.
 
 ## Design notes
 
